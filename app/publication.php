@@ -13,5 +13,10 @@ class publication extends Model
     protected $fillable = [
         'prix', 'description', 'image', 'date'
     ];
+
+    public function getComandes()
+{
+    return $this->hasMany('App\Comande');
+}
     
 }
