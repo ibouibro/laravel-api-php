@@ -3,9 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Cache\NullStore;
+use Cache;
 
 class AppServiceProvider extends ServiceProvider
 {
+
+   
+
     /**
      * Register any application services.
      *
@@ -14,10 +19,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        if (!$this->app->isLocal()) {
+ //       if ($this->app->isLocal()) {
+           
             //else register your services you require for production
-            $this->app['request']->server->set('HTTPS', true);
-        }
+       //         $this->app['request']->server->set('HTTPS', true);
+        //    }
     }
 
     /**
@@ -27,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      //  Cache::extend('none', function ($app) {
+      //      return Cache::repository(new NullStore);
+      //  });
     }
+    
 }

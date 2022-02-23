@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\api;
+use app\Http\Controllers\api;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('create', 'api\apicontroller@store');
 Route::get('liste', 'api\apicontroller@index');
+Route::get('produits', 'api\apicontroller@getProduits');
 Route::put('update/{id}', 'api\apicontroller@update');

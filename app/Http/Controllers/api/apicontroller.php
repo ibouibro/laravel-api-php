@@ -4,9 +4,10 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-// use Illuminate/Support/Facades/DB;
 
 use App\publication;
+use App\Produit;
+use App\Article;
 use Validator;
 
 class apicontroller extends Controller
@@ -58,6 +59,18 @@ class apicontroller extends Controller
             'message' => 'publications retrieved successfully.'
         ];
 
+        return response()->json($data, 200);
+    }
+
+
+
+    public function getProduits()
+    {
+      $produits = Produit::all();
+
+ 
+      $data = $produits->toArray();
+ 
         return response()->json($data, 200);
     }
 
